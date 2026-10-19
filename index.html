@@ -1,0 +1,808 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="NovaForge Studios is an independent developer studio focused on games, education and digital innovation.">
+  <title>NovaForge Studios | Independent Digital Development</title>
+
+  <style>
+    :root {
+      --bg: #080808;
+      --panel: #111111;
+      --white: #ffffff;
+      --muted: #a0a0a0;
+      --line: #292929;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 8, 8, .97);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .navbar {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .logo {
+      font-weight: 900;
+      font-size: 17px;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: #888;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      color: #ccc;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-contact {
+      border: 1px solid #666;
+      padding: 8px 12px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      padding: 90px 0;
+    }
+
+    .hero::after {
+      content: "NF";
+      position: absolute;
+      right: -15px;
+      bottom: -115px;
+      font-size: clamp(260px, 45vw, 550px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -35px;
+      color: rgba(255,255,255,.025);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 790px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow,
+    .section-label {
+      color: #aaa;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    .eyebrow {
+      margin-bottom: 23px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      height: 2px;
+      width: 24px;
+      background: white;
+      margin: 0 10px 3px 0;
+    }
+
+    h1 {
+      font-size: clamp(48px, 10vw, 100px);
+      line-height: .98;
+      letter-spacing: -5px;
+      margin-bottom: 27px;
+      font-weight: 900;
+    }
+
+    h1 span {
+      color: #777;
+    }
+
+    .hero p {
+      color: #aaa;
+      font-size: 15px;
+      max-width: 550px;
+      margin-bottom: 30px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      border: 1px solid white;
+      font-size: 12px;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .btn-light {
+      background: white;
+      color: black;
+    }
+
+    .btn-light:hover {
+      background: #ccc;
+    }
+
+    .btn-dark {
+      background: transparent;
+      color: white;
+    }
+
+    .btn-dark:hover {
+      background: #222;
+    }
+
+    /* SPECIALTIES */
+
+    .specialties {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .specialties-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .specialties span {
+      font-size: 10px;
+      color: #aaa;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    /* SECTIONS */
+
+    section.content {
+      padding: 90px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 25px;
+      margin-bottom: 38px;
+    }
+
+    .section-label {
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(31px, 5vw, 48px);
+      line-height: 1.15;
+      letter-spacing: -1.8px;
+    }
+
+    .section-description {
+      max-width: 390px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project {
+      background: var(--panel);
+      border: 1px solid #2c2c2c;
+      padding: 28px;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .project:hover {
+      border-color: #888;
+      transform: translateY(-3px);
+    }
+
+    .project-number {
+      color: #777;
+      font-size: 11px;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+    }
+
+    .project h3 {
+      font-size: 29px;
+      letter-spacing: -.8px;
+      margin-bottom: 10px;
+    }
+
+    .project p {
+      color: #aaa;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      border-top: 1px solid #303030;
+      padding-top: 16px;
+      margin-top: auto;
+    }
+
+    .project-type {
+      color: #bbb;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .project-status {
+      border: 1px solid #444;
+      padding: 4px 8px;
+      color: #bbb;
+      font-size: 9px;
+      text-transform: uppercase;
+    }
+
+    .project-link {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .project-link span {
+      display: inline-block;
+      transition: transform .2s;
+    }
+
+    .project-link:hover span {
+      transform: translateX(5px);
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .about-copy p {
+      color: #aaa;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .values {
+      border-top: 1px solid #333;
+    }
+
+    .value {
+      padding: 17px 0;
+      border-bottom: 1px solid #333;
+      display: flex;
+      gap: 18px;
+    }
+
+    .value-number {
+      color: #777;
+      font-size: 11px;
+    }
+
+    .value h3 {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .value p {
+      color: #999;
+      font-size: 12px;
+    }
+
+    /* FOCUS */
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .focus-card {
+      border: 1px solid #303030;
+      padding: 24px 20px;
+    }
+
+    .focus-icon {
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    .focus-card h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .focus-card p {
+      color: #999;
+      font-size: 12px;
+    }
+
+    /* CONTACT */
+
+    .contact-panel {
+      padding: clamp(26px, 6vw, 55px);
+      background: #111;
+      border: 1px solid #444;
+    }
+
+    .contact-panel h2 {
+      max-width: 600px;
+      margin-bottom: 18px;
+    }
+
+    .contact-panel p {
+      color: #aaa;
+      font-size: 14px;
+      max-width: 520px;
+      margin-bottom: 25px;
+    }
+
+    footer {
+      padding: 28px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-inner p,
+    .footer-links a {
+      font-size: 11px;
+      color: #888;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 17px;
+    }
+
+    @media (max-width: 650px) {
+      .navbar {
+        min-height: 65px;
+      }
+
+      .logo {
+        font-size: 14px;
+      }
+
+      .nav-links {
+        gap: 11px;
+      }
+
+      .nav-links a {
+        font-size: 10px;
+      }
+
+      .nav-contact {
+        padding: 6px 8px;
+      }
+
+      .hero {
+        min-height: 530px;
+        padding: 75px 0;
+      }
+
+      h1 {
+        letter-spacing: -2.5px;
+      }
+
+      section.content {
+        padding: 68px 0;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .projects,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        gap: 30px;
+      }
+
+      .focus-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project {
+        min-height: 295px;
+        padding: 24px;
+      }
+
+      .specialties-inner {
+        justify-content: flex-start;
+        gap: 14px 20px;
+      }
+
+      .specialties span {
+        font-size: 9px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .nav-links {
+        gap: 7px;
+      }
+
+      .nav-links a {
+        font-size: 9px;
+      }
+
+      .logo {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="#home">NOVA<span>FORGE</span></a>
+
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="nav-contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div class="container hero-content">
+
+        <div class="eyebrow">Independent Development Studio</div>
+
+        <h1>BUILT ON<br>BIG <span>IDEAS.</span></h1>
+
+        <p>
+          NovaForge Studios is an independent developer brand
+          exploring games, educational technology and digital
+          innovation. We create original ideas and develop them
+          one step at a time.
+        </p>
+
+        <div class="actions">
+          <a href="#projects" class="btn btn-light">
+            Explore Projects ↗
+          </a>
+
+          <a href="#about" class="btn btn-dark">
+            About The Studio
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="specialties">
+      <div class="container specialties-inner">
+        <span>Independent</span>
+        <span>Game Development</span>
+        <span>Education</span>
+        <span>Digital Innovation</span>
+      </div>
+    </div>
+
+    <section class="content" id="projects">
+      <div class="container">
+
+        <div class="section-head">
+          <div>
+            <div class="section-label">Our Projects</div>
+            <h2>Ideas taking shape.</h2>
+          </div>
+
+          <p class="section-description">
+            Discover the projects we're building and the
+            worlds we hope to bring to life.
+          </p>
+        </div>
+
+        <div class="projects">
+
+          <article class="project">
+            <div class="project-number">PROJECT / 001</div>
+
+            <h3>GRADE X Arena</h3>
+
+            <p>
+              An educational platform combining study resources,
+              PDF learning, Grade Bot AI assistance and interactive
+              quizzes to support students.
+            </p>
+
+            <div class="project-meta">
+              <span class="project-type">Education / Technology</span>
+              <span class="project-status">In Development</span>
+            </div>
+
+            <a href="gradex.html" class="project-link">
+              Discover GRADE X <span>→</span>
+            </a>
+          </article>
+
+          <article class="project">
+            <div class="project-number">PROJECT / 002</div>
+
+            <h3>GENESIS</h3>
+
+            <p>
+              An upcoming anime-inspired open-world game concept
+              built around exploration, adventure and an expansive
+              world full of possibilities.
+            </p>
+
+            <div class="project-meta">
+              <span class="project-type">Gaming / Open World</span>
+              <span class="project-status">Concept Stage</span>
+            </div>
+
+            <a href="genesis.html" class="project-link">
+              Discover GENESIS <span>→</span>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="content" id="about">
+      <div class="container about-grid">
+
+        <div>
+          <div class="section-label">About NovaForge</div>
+          <h2>Independent minds.<br>Original ideas.</h2>
+        </div>
+
+        <div class="about-copy">
+          <p>
+            NovaForge Studios is an independent development brand
+            focused on creating original digital products and experiences.
+          </p>
+
+          <p>
+            Our interests include interactive games, educational
+            platforms, digital tools and innovative simulations.
+          </p>
+
+          <p>
+            We're growing through experimentation, learning and
+            building real projects. Our vision is to turn creative
+            ambition into useful and memorable digital experiences.
+          </p>
+
+          <div class="values">
+
+            <div class="value">
+              <span class="value-number">01</span>
+              <div>
+                <h3>Original Thinking</h3>
+                <p>Ideas with their own identity and direction.</p>
+              </div>
+            </div>
+
+            <div class="value">
+              <span class="value-number">02</span>
+              <div>
+                <h3>Purposeful Development</h3>
+                <p>Building products with clear goals.</p>
+              </div>
+            </div>
+
+            <div class="value">
+              <span class="value-number">03</span>
+              <div>
+                <h3>Continuous Growth</h3>
+                <p>Improving every project, one step at a time.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="content" id="focus">
+      <div class="container">
+
+        <div class="section-head">
+          <div>
+            <div class="section-label">What We Explore</div>
+            <h2>Our areas of focus.</h2>
+          </div>
+        </div>
+
+        <div class="focus-grid">
+
+          <article class="focus-card">
+            <div class="focus-icon">↗</div>
+            <h3>Games</h3>
+            <p>
+              Original worlds, interactive adventures and
+              player-focused experiences.
+            </p>
+          </article>
+
+          <article class="focus-card">
+            <div class="focus-icon">▤</div>
+            <h3>Education</h3>
+            <p>
+              Digital learning resources and tools that help
+              students study and grow.
+            </p>
+          </article>
+
+          <article class="focus-card">
+            <div class="focus-icon">⌘</div>
+            <h3>Innovation</h3>
+            <p>
+              New concepts, digital products and creative
+              approaches to technology.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="content" id="contact">
+      <div class="container">
+
+        <div class="contact-panel">
+          <div class="section-label">Contact The Studio</div>
+
+          <h2>Let's build something meaningful.</h2>
+
+          <p>
+            Have a project idea, collaboration proposal or question
+            about NovaForge Studios? Get in touch with the studio.
+          </p>
+
+          <a href="mailto:YOUR_EMAIL_HERE"
+             class="btn btn-light"
+             id="email-button">
+            Contact NovaForge ↗
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="logo" href="#home">NOVA<span>FORGE</span></a>
+
+      <p>
+        © <span id="year"></span> NovaForge Studios.
+        Independent by design.
+      </p>
+
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    document.getElementById("email-button").addEventListener(
+      "click",
+      function(event) {
+        if (this.getAttribute("href") === "mailto:YOUR_EMAIL_HERE") {
+          event.preventDefault();
+          alert("Add your official studio email before publishing.");
+        }
+      }
+    );
+  </script>
+
+</body>
+</html>

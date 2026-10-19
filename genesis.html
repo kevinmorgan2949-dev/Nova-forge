@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Discover GENESIS, an upcoming open-world game concept by NovaForge Studios.">
+  <title>GENESIS | NovaForge Studios</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      background: #080808;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1050px, 90%);
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid #292929;
+      background: #080808;
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #888;
+    }
+
+    .back {
+      color: #ccc;
+      font-size: 12px;
+    }
+
+    .hero {
+      min-height: 570px;
+      display: flex;
+      align-items: center;
+      padding: 85px 0;
+      border-bottom: 1px solid #292929;
+      background:
+        radial-gradient(ellipse at 80% 25%,
+        #303030 0%, #171717 23%, #080808 65%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "G";
+      position: absolute;
+      right: 15px;
+      bottom: -155px;
+      font-size: clamp(280px, 50vw, 600px);
+      font-weight: 900;
+      line-height: 1;
+      color: rgba(255,255,255,.035);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 720px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .label {
+      color: #aaa;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 6px 11px;
+      border: 1px solid #555;
+      color: #ddd;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: clamp(65px, 13vw, 125px);
+      line-height: .95;
+      letter-spacing: -6px;
+      font-weight: 900;
+      margin-bottom: 28px;
+    }
+
+    h1 span {
+      color: #777;
+    }
+
+    .intro {
+      color: #bbb;
+      font-size: 15px;
+      max-width: 570px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      border: 1px solid #fff;
+      background: #fff;
+      color: #080808;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .button-outline {
+      background: transparent;
+      color: #fff;
+      margin-left: 8px;
+    }
+
+    section {
+      padding: 75px 0;
+      border-bottom: 1px solid #292929;
+    }
+
+    h2 {
+      font-size: clamp(30px, 6vw, 48px);
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      margin-bottom: 18px;
+    }
+
+    .section-intro {
+      color: #aaa;
+      max-width: 650px;
+      font-size: 14px;
+      margin-bottom: 35px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .feature {
+      background: #111;
+      border: 1px solid #303030;
+      padding: 25px;
+      min-height: 185px;
+    }
+
+    .number {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #777;
+      margin-bottom: 17px;
+    }
+
+    h3 {
+      font-size: 19px;
+      margin-bottom: 9px;
+    }
+
+    .feature p {
+      color: #aaa;
+      font-size: 13px;
+    }
+
+    .vision {
+      background: #101010;
+      padding: 30px;
+      border: 1px solid #333;
+    }
+
+    .vision p {
+      color: #aaa;
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    .contact p {
+      color: #aaa;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    footer {
+      padding: 25px 0;
+      color: #888;
+      font-size: 11px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        min-height: 500px;
+        padding: 70px 0;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .button-outline {
+        margin: 12px 0 0;
+      }
+
+      .vision {
+        padding: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <a class="logo" href="index.html">
+        NOVA<span>FORGE</span>
+      </a>
+
+      <a class="back" href="index.html">← Back to Studio</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero-content">
+
+        <div class="label">A NovaForge Studios Game Concept</div>
+
+        <div class="status">Concept Stage · Upcoming Project</div>
+
+        <h1>GENE<span>SIS.</span></h1>
+
+        <p class="intro">
+          Enter a world of possibilities. GENESIS is an ambitious
+          anime-inspired open-world game concept built around
+          exploration, adventure, character progression and freedom.
+        </p>
+
+        <a class="button" href="#vision">
+          Discover The Vision ↓
+        </a>
+
+        <a class="button button-outline" href="index.html">
+          NovaForge Studios
+        </a>
+
+      </div>
+    </section>
+
+    <section id="vision">
+      <div class="container">
+
+        <div class="label">The Vision</div>
+
+        <h2>A world waiting to be explored.</h2>
+
+        <p class="section-intro">
+          GENESIS is at the concept stage. The goal is to develop
+          an original game world where exploration, discovery and
+          meaningful progression shape the player's journey.
+          The ideas below represent the intended direction, not
+          confirmed or completed gameplay features.
+        </p>
+
+        <div class="feature-grid">
+
+          <article class="feature">
+            <div class="number">VISION / 01</div>
+            <h3>Open-World Exploration</h3>
+            <p>
+              An expansive world concept filled with locations,
+              discoveries and opportunities for adventure.
+            </p>
+          </article>
+
+          <article class="feature">
+            <div class="number">VISION / 02</div>
+            <h3>Anime-Inspired Combat</h3>
+            <p>
+              Aiming for dynamic battles, unique abilities and
+              memorable encounters.
+            </p>
+          </article>
+
+          <article class="feature">
+            <div class="number">VISION / 03</div>
+            <h3>Character Progression</h3>
+            <p>
+              A vision for character growth, developing skills
+              and discovering new possibilities.
+            </p>
+          </article>
+
+          <article class="feature">
+            <div class="number">VISION / 04</div>
+            <h3>A Living World</h3>
+            <p>
+              Exploring ideas for an immersive world with
+              environments and experiences that reward curiosity.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+
+        <div class="label">Where It Begins</div>
+
+        <h2>Every great world starts with an idea.</h2>
+
+        <div class="vision">
+          <h3>Building toward GENESIS</h3>
+
+          <p>
+            GENESIS is an early-stage project under NovaForge Studios.
+            Its world, systems, gameplay and development roadmap
+            have not yet been finalized.
+          </p>
+
+          <p>
+            This page introduces the creative vision as it develops.
+            Future updates can share confirmed milestones as the
+            project moves forward.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="contact">
+      <div class="container">
+
+        <div class="label">Follow The Journey</div>
+
+        <h2>The beginning of something bigger.</h2>
+
+        <p>
+          GENESIS is an upcoming game concept from NovaForge Studios.
+          Return to the studio homepage to explore our other project.
+        </p>
+
+        <a href="index.html" class="button">
+          Back to NovaForge Studios ↗
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> NovaForge Studios</span>
+      <span>GENESIS · Early-Stage Game Concept</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>

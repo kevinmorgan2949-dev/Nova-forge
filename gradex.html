@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Discover GRADE X Arena, an educational platform by NovaForge Studios.">
+  <title>GRADE X Arena | NovaForge Studios</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #080808;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1050px, 90%);
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid #292929;
+      padding: 21px 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #999;
+    }
+
+    .back {
+      color: #ccc;
+      font-size: 13px;
+    }
+
+    .hero {
+      padding: 100px 0 85px;
+      border-bottom: 1px solid #292929;
+      background:
+        radial-gradient(ellipse at 85% 20%,
+        #242424 0%, #080808 55%);
+    }
+
+    .label {
+      color: #aaa;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(45px, 9vw, 88px);
+      letter-spacing: -4px;
+      line-height: 1.03;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: #888;
+    }
+
+    .intro {
+      max-width: 600px;
+      color: #bbb;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .status {
+      display: inline-block;
+      border: 1px solid #555;
+      padding: 7px 12px;
+      color: #ddd;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #fff;
+      color: #080808;
+      padding: 13px 22px;
+      border: 1px solid #fff;
+      border-radius: 3px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .button-outline {
+      background: transparent;
+      color: white;
+      margin-left: 8px;
+    }
+
+    section {
+      padding: 75px 0;
+      border-bottom: 1px solid #292929;
+    }
+
+    h2 {
+      font-size: clamp(29px, 5vw, 45px);
+      letter-spacing: -1.5px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .section-intro {
+      max-width: 620px;
+      color: #aaa;
+      margin-bottom: 35px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .feature {
+      background: #111;
+      border: 1px solid #303030;
+      padding: 25px;
+    }
+
+    .feature .number {
+      color: #777;
+      font-size: 12px;
+      margin-bottom: 17px;
+    }
+
+    h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .feature p,
+    .about p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .about p {
+      max-width: 720px;
+      margin-bottom: 17px;
+    }
+
+    .contact {
+      background: #111;
+      border: 1px solid #333;
+      padding: 30px;
+    }
+
+    .contact p {
+      color: #aaa;
+      margin-bottom: 23px;
+    }
+
+    footer {
+      padding: 25px 0;
+      color: #888;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 75px 0;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .button-outline {
+        margin: 10px 0 0;
+      }
+
+      .contact {
+        padding: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <a class="logo" href="index.html">
+        NOVA<span>FORGE</span>
+      </a>
+
+      <a class="back" href="index.html">← Back to Studio</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <div class="label">A NovaForge Studios Project</div>
+
+        <div class="status">Development Project</div>
+
+        <h1>GRADE X<br><span>ARENA.</span></h1>
+
+        <p class="intro">
+          A new approach to student learning. GRADE X Arena is an
+          educational platform bringing learning resources, AI-assisted
+          study and interactive quizzes together in one place.
+        </p>
+
+        <a class="button" href="#features">
+          Explore Features ↓
+        </a>
+
+        <a class="button button-outline" href="index.html">
+          Our Studio
+        </a>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <div class="label">What We're Building</div>
+
+        <h2>Designed for curious minds.</h2>
+
+        <p class="section-intro">
+          The goal is to give students useful digital tools that
+          support their studies and make learning more interactive.
+        </p>
+
+        <div class="features">
+
+          <article class="feature">
+            <div class="number">FEATURE / 01</div>
+            <h3>Learning Library</h3>
+            <p>
+              A place for educational PDF resources that students
+              can access to support their studies.
+            </p>
+          </article>
+
+          <article class="feature">
+            <div class="number">FEATURE / 02</div>
+            <h3>Grade Bot</h3>
+            <p>
+              An AI study assistant designed to help students
+              understand questions and learn from their study materials.
+            </p>
+          </article>
+
+          <article class="feature">
+            <div class="number">FEATURE / 03</div>
+            <h3>Interactive Arena</h3>
+            <p>
+              Quiz-based learning experiences that encourage students
+              to test their knowledge.
+            </p>
+          </article>
+
+          <article class="feature">
+            <div class="number">FEATURE / 04</div>
+            <h3>A Growing Platform</h3>
+            <p>
+              An evolving educational project with room for new
+              tools and learning experiences over time.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="container">
+        <div class="label">Our Mission</div>
+
+        <h2>Learning should move forward.</h2>
+
+        <p>
+          GRADE X Arena is being developed to make useful study
+          resources and interactive learning tools more accessible.
+        </p>
+
+        <p>
+          The project is part of NovaForge Studios' vision to create
+          original digital products that serve real needs.
+        </p>
+
+        <p>
+          We're building step by step, improving the experience
+          as the platform grows.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container contact">
+        <div class="label">Stay Connected</div>
+
+        <h2>Follow the journey.</h2>
+
+        <p>
+          GRADE X Arena is a development project. More information
+          about access and availability will be shared when ready.
+        </p>
+
+        <a class="button" href="index.html">
+          Return to NovaForge Studios
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> NovaForge Studios</span>
+      <span>GRADE X Arena · An independent project</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
