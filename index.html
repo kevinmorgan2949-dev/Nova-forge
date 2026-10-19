@@ -789,20 +789,12 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
 
-    document.getElementById("email-button").addEventListener(
-      "click",
-      function(event) {
-        if (this.getAttribute("href") === "mailto:novaforge241@gmail.com") {
-          event.preventDefault();
-          alert("Add your official studio email before publishing.");
-        }
-      }
-    );
-  </script>
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
 
 </body>
 </html>
